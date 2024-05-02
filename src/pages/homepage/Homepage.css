@@ -1,0 +1,40 @@
+.homepage-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #ebe3e3a9; /* Grey background color for the top 30% */
+    height: 70vh; /* Set the height to 70% of the viewport height */
+  }
+  
+  .image-container {
+    flex: 1; /* Take 50% of the space */
+    float: left;
+  }
+  
+  .text-container {
+    flex: 1; /* Take 50% of the space */
+    padding: 20px; /* Add padding for spacing */
+    text-align: left;
+  }
+  
+  .homepage-image {
+    width: 100%; /* Make the image fill the container */
+    max-width: 400px; /* Adjust the maximum width as needed */
+  }
+  
+  .homepage-button {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .homepage-button:hover {
+    background-color: #0056b3;
+  }
+   .ltext{
+    font-size: 25px;
+   }

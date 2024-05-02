@@ -1,0 +1,148 @@
+.top-users-page {
+    margin-left: 5rem;
+    position: absolute;
+    width: 80%; /* Ensure full width */
+}
+
+.top-users-container {
+    width: 80%; /* Increase container width */
+    margin: auto; /* Center the container */
+}
+
+.top-users-content {
+    margin-right: 0; /* Remove right margin */
+    margin-left: 0; /* Remove left margin */
+}
+
+.tabs {
+    display: flex;
+    gap: 30px; /* Increase gap between buttons */
+    padding-left: 10rem;
+    margin-bottom: 20px; /* Add margin to separate from user list */
+}
+
+.tabs button {
+    padding: 15px 30px; /* Increase padding */
+    font-size: 18px; /* Increase font size */
+    background-color: #f0f0f0; /* Background color */
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Smooth transition */
+}
+
+.tabs button:hover {
+    background-color: #ccc; /* Hover background color */
+}
+
+.tabs button.active {
+    background-color: #eb6932; /* Active background color */
+}
+
+
+.user-info {
+    display: flex; /* Keep user details horizontally aligned */
+    align-items: center;
+    margin-bottom: 20px; /* Increase margin to separate users */
+}
+
+.serial-number {
+    font-size: 18px; /* Increase serial number font size */
+    margin-right: 10px; /* Increase margin */
+    font-weight: bold;
+}
+
+.user-image {
+    width: 80px; /* Increase image size */
+    height: 80px; /* Increase image size */
+    border-radius: 50%;
+    border-bottom: 2px dotted black; /* Increase border size */
+    margin-right: 30px; /* Increase margin */
+}
+.user-name{
+    font-size: 30px;
+}
+.user-details h3 {
+    text-align: left;
+  
+    margin-bottom: 5px; /* Increase margin */
+}
+
+.user-details p {
+    text-align: left;
+    font-size: 18px; /* Increase mantra count font size */
+    margin: 0; /* Remove default margin */
+}
+
+.user-divider {
+    border: none;
+    border-top: 2px solid #ccc; /* Increase border size */
+    width: 100%; /* Extend the line to cover the entire container */
+}
+
+.button {
+    background-color: #eb6932;
+    border: none;
+    color: white;
+    padding: 20px 40px; /* Increase padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 20px; /* Increase font size */
+    border-radius: 15px; /* Increase border radius */
+    margin-left: 8rem;
+}
+.top-users-page {
+    margin-left: 5%; /* Adjust margin to percentage */
+    width: 90%; /* Adjust width to percentage */
+}
+
+.top-users-container {
+    width: 90%; /* Adjust container width to percentage */
+}
+
+.tabs {
+    display: flex;
+    flex-wrap: wrap; /* Allow tabs to wrap */
+    justify-content: center; /* Center tabs */
+    gap: 15px; /* Reduce gap between buttons */
+    padding-left: 5%; /* Adjust padding to percentage */
+}
+
+.tabs button {
+    padding: 12px 20px; /* Adjust padding */
+    font-size: 16px; /* Adjust font size */
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 15px; /* Reduce margin between users */
+}
+
+.user-image {
+    width: 60px; /* Adjust image size */
+    height: 60px; /* Adjust image size */
+    margin-right: 15px; /* Reduce margin */
+}
+
+.user-name {
+    font-size: 24px; /* Adjust font size */
+}
+
+.user-details p {
+    font-size: 16px; /* Adjust mantra count font size */
+}
+
+.button {
+    margin: 20px auto; /* Center the button */
+}
+
+h2 {
+    margin: 0; /* Remove default margin for all headings */
+}
+
+
+.user-name{
+    color: #de4620;
+}
