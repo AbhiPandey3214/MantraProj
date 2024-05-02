@@ -2,7 +2,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #ebe3e3a9; /* Grey background color for the top 30% */
+   
     height: 70vh; /* Set the height to 70% of the viewport height */
   }
   

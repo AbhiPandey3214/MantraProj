@@ -146,3 +146,10 @@ h2 {
 .user-name{
     color: #de4620;
 }
+.middle{
+   
+        display: flex;
+        justify-content: center;
+ 
+      
+}

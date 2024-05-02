@@ -50,8 +50,9 @@ const TopUsersPage = () => {
       <div>
         <Navbar></Navbar>
       </div>
-    
-      <h1 className='head'>Top Users</h1>
+    <div className='middle'>
+      <h1 >Top Users</h1>
+      </div>
     <div className="top-users-page">
       
       <div className="top-users-container">
@@ -89,7 +90,7 @@ const TopUsersPage = () => {
         </div>
       </div>
       {/* Button placed beside top-users-container */}
-      <div className="button-container">
+      <div className='middle'>
         <button className='button'>Start Mantralekhan</button>
       </div>
     </div>

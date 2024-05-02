@@ -1,0 +1,39 @@
+.Mantrapage {
+  font-family: Arial, sans-serif;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.occurrences-table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+.occurrences-table td {
+  border: 1px solid #ddd;
+  padding: 12px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.occurrences-table .grid-cell {
+  height: 50px;
+}
+
+.occurrences-table .filled {
+  background-color: #007bff;
+  color: white;
+}
+
+@media screen and (max-width: 960px) {
+  .occurrences-table {
+    grid-template-columns: repeat(6, 1fr); /* 6 grids in one row on mid-sized screens */
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .occurrences-table {
+    grid-template-columns: repeat(3, 1fr); /* 3 grids in one row on smaller screens */
+  }
+}
