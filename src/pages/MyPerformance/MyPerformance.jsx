@@ -1,13 +1,32 @@
 import React, { useState, useEffect } from 'react';
-import Button from 'react-bootstrap/Button';
+import Navbar from '../../components/navbar/Navbar';
 import './MyPerformance.css'; // Import CSS for styling
 import defaultImage from './download.png'; // Import default image
+import BarChart from './BarChart';
+import { UserMantraData } from './Data';
 
 const MyPerformance = () => {
-  // Dummy user data
+ 
+  const [graphData,setGraphData]=useState(
+    {
+      labels:UserMantraData.map((data)=>data.Date),
+      datasets:[{
+        label:"Mantralekhan",
+        data:UserMantraData.map((data)=>data.mantra_chanted),
+        backgroundColor:["rgba(75,192,192,1)",
+        "#ecf0f1",
+        "#50AF95",
+        "#f3ba2f",
+        "#2a71d0",
+      ],
+      borderColor: "black",
+        borderWidth: 2,
+      }]
+    }
+  )
   const dummyUserData = {
-    firstName: 'John',
-    lastName: 'Doe',
+    firstName: 'Abhi',
+    lastName: 'Pandey',
     todayMantralekhan: 100,
     weekMantralekhan: 500,
     totalMantralekhan: 1500
@@ -36,22 +55,35 @@ const MyPerformance = () => {
   }, []);
 
   return (
-    <div className="my-performance">
+    <div >
+      <Navbar></Navbar>
+      <div className='middle'>
       <h2>My Performance</h2>
+      </div>
+      
 
-      <div className="user-info ">
-        <div className="user-image">
+      <div className="parent">
+       <div className='child1'>
           <img src={image ? URL.createObjectURL(image) : defaultImage} alt="Profile" />
-          <Button variant="outline-dark" size='sm' className='btn'>Upload Image</Button>
-        </div>
-        <div className="user-details m-30">
+          </div>
+       
+       <div className='child2'>
           <p><strong>Name:</strong> {userData.firstName} {userData.lastName}</p>
           <p><strong>Today's Mantralekhan:</strong> {userData.todayMantralekhan}</p>
           <p><strong>This Week's Mantralekhan:</strong> {userData.weekMantralekhan}</p>
           <p><strong>Total Mantralekhan:</strong> {userData.totalMantralekhan}</p>
           <p><strong>Current Time:</strong> {currentDateTime && currentDateTime.toLocaleString()}</p>
-        </div>
-      </div>
+          </div>
+         
+        
+      
+    </div>
+   <div className='vw-80 chartclass'>
+    <BarChart chartData={graphData}></BarChart>
+    </div>
+    <div>
+     
+    </div>
     </div>
   );
 };

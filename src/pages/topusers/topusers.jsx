@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import './topusers.css'; 
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/navbar/Navbar';
 import defaultUserImage from './download.png'; // Import default user image
 
 const TopUsersPage = () => {

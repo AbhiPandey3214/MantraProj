@@ -1,7 +1,7 @@
 import React from 'react';
 import './Homepage.css'; // Don't forget to create this CSS file for styling
 import Bhagwanji from './Bhagwanji.png';
-import Navbar from '../../components/Navbar';
+import Navbar from '../../components/navbar/Navbar';
 const Homepage = () => {
     const topUsersData = {count:316314331,users:14983}
   return (
