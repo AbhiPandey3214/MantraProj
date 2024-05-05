@@ -23,9 +23,7 @@ and counting...</p>
       </div>
     
     </div>
-     <div className='footer'>
-     <Bottom></Bottom>
-  </div>
+   
     </div>
   );
 };

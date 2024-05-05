@@ -21,9 +21,7 @@
  .ltext{
   font-size: 25px;
  }
- .footer{
-  bottom: 0;
- }
+ 
  @media screen and (min-width: 550px) {
   .image-container {
     float: left;
