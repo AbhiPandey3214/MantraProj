@@ -3,6 +3,7 @@ import Navbar from '../../components/navbar/Navbar';
 import './MyPerformance.css'; // Import CSS for styling
 import defaultImage from './download.png'; // Import default image
 import BarChart from './BarChart';
+import Bottom from '../../components/bottom/Bottom';
 import { UserMantraData } from './Data';
 
 const MyPerformance = () => {
@@ -32,26 +33,26 @@ const MyPerformance = () => {
     totalMantralekhan: 1500
   };
 
-  // State variables for user information
+ 
   const [userData, setUserData] = useState(dummyUserData);
   const [image, setImage] = useState(null); // For storing the image file
   const [currentDateTime, setCurrentDateTime] = useState(null);
 
-  // Function to handle file upload
+  
   const handleImageUpload = (event) => {
     const file = event.target.files[0];
     setImage(file);
   };
 
-  // Function to get current date and time
+  
   const getCurrentDateTime = () => {
     const now = new Date();
     setCurrentDateTime(now);
   };
 
   useEffect(() => {
-    const intervalId = setInterval(getCurrentDateTime, 1000); // Update every second
-    return () => clearInterval(intervalId); // Clean up on unmount
+    const intervalId = setInterval(getCurrentDateTime, 1000); 
+    return () => clearInterval(intervalId); 
   }, []);
 
   return (
@@ -82,7 +83,7 @@ const MyPerformance = () => {
     <BarChart chartData={graphData}></BarChart>
     </div>
     <div>
-     
+     <Bottom></Bottom>
     </div>
     </div>
   );

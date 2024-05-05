@@ -1,5 +1,6 @@
 import React from 'react';
-import './Homepage.css'; // Don't forget to create this CSS file for styling
+import './Homepage.css'; 
+import Bottom from '../../components/bottom/Bottom';
 import Bhagwanji from './Bhagwanji.png';
 import Navbar from '../../components/navbar/Navbar';
 const Homepage = () => {
@@ -20,7 +21,11 @@ by <span>{topUsersData.users.toLocaleString()}</span> registered users on this s
 and counting...</p>
         <button className="homepage-button">Learn More</button>
       </div>
+    
     </div>
+     <div className='footer'>
+     <Bottom></Bottom>
+  </div>
     </div>
   );
 };

@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import './topusers.css'; 
+import Bottom from '../../components/bottom/Bottom';
 import Navbar from '../../components/navbar/Navbar';
-import defaultUserImage from './download.png'; // Import default user image
+import defaultUserImage from './download.png'; 
 
 const TopUsersPage = () => {
   const [activeTab, setActiveTab] = useState('today');
@@ -89,11 +90,12 @@ const TopUsersPage = () => {
           
         </div>
       </div>
-      {/* Button placed beside top-users-container */}
+      
       <div className='middle'>
         <button className='button'>Start Mantralekhan</button>
       </div>
     </div>
+     
    </div>
   );
 };

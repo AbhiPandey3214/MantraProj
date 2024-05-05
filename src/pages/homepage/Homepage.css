@@ -1,40 +1,57 @@
 .homepage-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-   
-    height: 70vh; /* Set the height to 70% of the viewport height */
-  }
-  
+  display: inline-block;
+  border: 20x solid red;
+  margin-top: 2%;
+}
+
+
+.homepage-button {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.homepage-button:hover {
+  background-color: #0056b3;
+}
+ .ltext{
+  font-size: 25px;
+ }
+ .footer{
+  bottom: 0;
+ }
+ @media screen and (min-width: 550px) {
   .image-container {
-    flex: 1; /* Take 50% of the space */
     float: left;
+    width: 40%;
+    padding-right: 15px;
+   
   }
-  
+  .image-container img {
+    width: 100%;
+  }
   .text-container {
-    flex: 1; /* Take 50% of the space */
-    padding: 20px; /* Add padding for spacing */
-    text-align: left;
+    float: left;
+    width: 60%;
   }
+}
+@media screen and (max-width: 550px) {
+  .image-container {
+    width: 100%;
+  }
+  .image-container img {
+    width: 100%;
+  }
+  .text-container {
+    width: 100%;
+    margin-left: 4%;
+  }
+  .homepage-button{
+    margin-left: 35%;
+  }
+}
   
-  .homepage-image {
-    width: 100%; /* Make the image fill the container */
-    max-width: 400px; /* Adjust the maximum width as needed */
-  }
-  
-  .homepage-button {
-    background-color: #007bff;
-    color: white;
-    padding: 10px 20px;
-    font-size: 16px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .homepage-button:hover {
-    background-color: #0056b3;
-  }
-   .ltext{
-    font-size: 25px;
-   }
