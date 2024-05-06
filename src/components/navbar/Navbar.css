@@ -11,7 +11,7 @@
   position: sticky;
   top: 0;
   z-index: 20;
-  border: 2px solid black;
+ border-radius: 5px;
 }
 
 .nav-container {
@@ -80,11 +80,13 @@
 .nav-item:hover:after {
   width: 100%;
   background: #ffdd40;
+  
 }
 
 .nav-item .active {
   color: #ffdd40;
   border: 1px solid #ffdd40;
+  border-radius: 5px;
 }
 
 .nav-icon {

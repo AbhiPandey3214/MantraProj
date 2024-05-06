@@ -1,0 +1,21 @@
+.faq-main-div{
+    display: flex;
+}
+.faq-left-div{
+    width: 60%;
+    margin-right: 10%;
+    border: 1px solid green;
+}
+.faq-right-div{
+    width: 20%;
+    border: 1px solid blue;
+}
+@media (max-width: 767px) {
+    .faq-main-div {
+      flex-direction: column;
+    }
+    .faq-left,
+    .faq-right {
+      width: auto;
+    }
+  }

@@ -18,11 +18,12 @@ const FeedbackModal = ({ isModalOpenFeedback,closeModalFeedback }) => {
   };
 
   return (
-    <div >
+   <div>
       
       <div className="modal-content">
         <div className="box">
-        <button className="modal-close" aria-label="close" onClick={closeModalFeedback}>
+        <button  className="modal-close is-large"
+        aria-label="close"  onClick={closeModalFeedback}>
             <FontAwesomeIcon icon={faTimes} />
           </button>
           <h2 className="title">Feedback</h2>
@@ -78,6 +79,7 @@ const FeedbackModal = ({ isModalOpenFeedback,closeModalFeedback }) => {
         aria-label="close"
         onClick={closeModalFeedback}
       ></button>
+    
     </div>
   );
 };

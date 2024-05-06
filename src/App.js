@@ -8,6 +8,7 @@ import Homepage from './pages/homepage/Homepage';
 import Mantrapage from './pages/mantrapage/Mantrapage';
 import TopUsersPage from './pages/topusers/Topusers';
 import MyPerformance from './pages/MyPerformance/MyPerformance';
+import FAQ from './pages/FAQ/FAQ';
 function App() {
   return (
    <Router>
@@ -16,6 +17,7 @@ function App() {
       <Route path="/topusers" element={<TopUsersPage/>}></Route>
       <Route path="/mantrapage" element={<Mantrapage/>}></Route>
       <Route path="/myperformance" element={<MyPerformance/>}></Route>
+      <Route path="/faq" element={<FAQ/>}></Route>
     </Routes>
    </Router>
   );

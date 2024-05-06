@@ -91,6 +91,7 @@
     font-size: 20px; /* Increase font size */
     border-radius: 15px; /* Increase border radius */
     margin-left: 8rem;
+    border-radius: 5px;
 }
 .top-users-page {
     margin-left: 5%; /* Adjust margin to percentage */

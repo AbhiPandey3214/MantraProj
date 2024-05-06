@@ -1,96 +1,79 @@
 import React, { useState } from 'react';
-import {Table} from 'react-bootstrap';
+import {Navbar, Table} from 'react-bootstrap';
+import image1 from '../homepage/Bhagwanji.png'
 import './Mantrapage.css';
 
 function Mantrapage() {
  
-  const [occurrences, setOccurrences] = useState([]);
-  const [skipEnter, setSkipEnter] = useState(false);
-  const cellsPerRow = 9;
-  const maxRows = 11; 
+  const [word, setWord] = useState('');
+  const [lines, setLines] = useState(Array(55).fill(''));
+  const [wordCount, setWordCount] = useState(0);
+  const wordPattern = "Swaminarayan";
+  const [autoEnter, setAutoEnter] = useState(false);
 
-  const handleInputChange = (event) => {
-    const text = event.target.value;
-    if (text.endsWith('Swaminarayan')) {
-      const newOccurrences = [...occurrences, 'Swaminarayan'];
-      setOccurrences(newOccurrences);
-    
-      
-      if (newOccurrences.length > cellsPerRow * maxRows) {
-        setOccurrences(newOccurrences.slice(-cellsPerRow * maxRows));
+  const handleInputChange = (e) => {
+    const input = e.target.value.slice(0, 12); // Limit input to 6 characters
+    const newWord = input
+      .split('')
+      .filter((char, index) => index < 12 && char === wordPattern[index])
+      .join('');
+    setWord(newWord);
+    if (autoEnter && newWord === wordPattern) {
+      handleEnterPress();
+    }
+
+  };
+
+
+
+  const handleEnterPress = () => {
+    if (word === wordPattern) {
+      const newLines = [...lines];
+      const lineIndex = newLines.findIndex(line => line === '');
+      if (lineIndex !== -1) {
+        newLines[lineIndex] = word;
+        setLines(newLines);
+        setWord('');
+        setWordCount(wordCount + 1);
+        if (lineIndex === 54) {
+          // Reset lines when all lines are filled
+          setLines(Array(55).fill(''));
+        }
       }
-
-      event.target.value = ''; 
+    }
+    else {
+      setWord('')
     }
   };
-
-  const handleSkipEnterChange = () => {
-    setSkipEnter(!skipEnter);
-  };
-
   return (
-    <div className="Mantrapage">
-      
-      <textarea
-        rows={10}
-        cols={50}
-        onChange={handleInputChange}
-        onKeyDown={(event) => skipEnter && event.key === 'Enter' && event.preventDefault()}
-      />
-      <div className="skip-enter-checkbox">
-        <input type="checkbox" id="skipEnter" checked={skipEnter} onChange={handleSkipEnterChange} />
-        <label htmlFor="skipEnter">Skip Enter</label>
+    <div >
+      <div>
+      <Navbar></Navbar>
       </div>
-      <Table responsive>
-      <thead>
-        <tr>
-          <th>#</th>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <th key={index}>Table heading</th>
-          ))}
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>1</td>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
-        </tr>
-        <tr>
-          <td>2</td>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
-        </tr>
-        <tr>
-          <td>3</td>
-          {Array.from({ length: 12 }).map((_, index) => (
-            <td key={index}>Table cell {index}</td>
-          ))}
-        </tr>
-      </tbody>
-    </Table>
-      <Table responsive>
-      <thead>
-        
-      </thead>
-      <tbody>
-      {Array.from({ length: maxRows + 1 }).map((_, rowIndex) => (
-            <tr key={rowIndex}>
-              {Array.from({ length: cellsPerRow }).map((_, cellIndex) => {
-                const index = rowIndex * cellsPerRow + cellIndex;
-                return (
-                  <td key={index} className={`grid-cell ${index < occurrences.length ? 'filled' : ''}`}>
-                    {occurrences[index]}
-                  </td>
-                );
-              })}
-            </tr>
-          ))}
-      </tbody>
-    </Table>
-    
+      <div className='main'>
+        <img src={image1} alt='iMAGE' className='image' />
+        <div className='sub_main'>
+          <div className="box">
+            <input
+              type="text"
+              value={word}
+              onChange={handleInputChange}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleEnterPress(); }}
+              placeholder="Swaminarayan"
+            />
+            
+          </div>
+          <div className='count'>Total Count {wordCount} and counting</div>
+
+        </div>
+      </div>
+      <div className="lines">
+        {lines.map((line, index) => (
+          <div key={index} className="line">
+            {line}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }

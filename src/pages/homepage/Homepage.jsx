@@ -3,6 +3,7 @@ import './Homepage.css';
 import Bottom from '../../components/bottom/Bottom';
 import Bhagwanji from './Bhagwanji.png';
 import Navbar from '../../components/navbar/Navbar';
+
 const Homepage = () => {
     const topUsersData = {count:316314331,users:14983}
   return (
