@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import {Navbar, Table} from 'react-bootstrap';
+import Navbar from '../../components/navbar/Navbar';
 import image1 from '../homepage/Bhagwanji.png'
 import './Mantrapage.css';
 

@@ -1,9 +1,16 @@
 import React from 'react'
 import './FAQ.css';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Navbar from '../../components/navbar/Navbar';
 const FAQ = () => {
   return (
+    <div>
+<div>
+ <Navbar></Navbar>
+</div>
+    
     <div className="faq-main-div editor">
+
         <div className= "faq-left-div ">
         <h3 className='font-weight-bold'>Frequently Asked Questions</h3>
         <div>
@@ -48,6 +55,7 @@ Kindly do contact us if you still face problems. Make sure to explain the proble
         <p>Right</p>
         </div>
     
+    </div>
     </div>
   );
 }
