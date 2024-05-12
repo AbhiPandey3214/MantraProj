@@ -8,7 +8,7 @@
   display: flex;
   flex-wrap:wrap;
   justify-content: space-between;
-  width: 80%; /* Changed width to 60% */
+  width: 80%; 
   margin: 0 auto;
   margin-top: 20px;
 }
@@ -18,18 +18,18 @@
   font-size: 20px;
   font-weight: 600;
   width: 18%;
-  min-height: 30px; /* Set minimum height for each line */
+  min-height: 30px; 
   margin-bottom: 10px; 
- /* padding: 5px;  */
   border-bottom: 1px dotted #000;
 }
 
-input {
+.mantrainput {
   padding: 5px;
   width: 250px;
   font-size: 16px;
-  border-color: orangered;
+  
   border-radius: 8px;
+  border: 2px solid #f0f0f0;
 }
 .main{
   align-items: center;
@@ -47,6 +47,8 @@ input {
   width:30%;
 }
 .count{
+  margin-left: 3rem;
+  margin-top: .5rem;
   padding-left: 20px;
 }
 @media screen and (max-width: 600px) {
@@ -78,6 +80,8 @@ input {
 
   .count {
     padding-left: 0;
+    margin-left: -1rem;
     margin-top: 10px;
   }
+  
 }

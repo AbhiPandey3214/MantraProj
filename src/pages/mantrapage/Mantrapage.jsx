@@ -1,10 +1,9 @@
 import React, { useState } from 'react';
 import Navbar from '../../components/navbar/Navbar';
-import image1 from '../homepage/Bhagwanji.png'
+import image1 from '../../assets/Bhagwanji.png';
 import './Mantrapage.css';
-
+import Bottom from '../../components/bottom/Bottom';
 function Mantrapage() {
- 
   const [word, setWord] = useState('');
   const [lines, setLines] = useState(Array(55).fill(''));
   const [wordCount, setWordCount] = useState(0);
@@ -12,43 +11,43 @@ function Mantrapage() {
   const [autoEnter, setAutoEnter] = useState(false);
 
   const handleInputChange = (e) => {
-    const input = e.target.value.slice(0, 12); // Limit input to 6 characters
+    const input = e.target.value.slice(0, 12); // Limit input to 12 characters
     const newWord = input
       .split('')
       .filter((char, index) => index < 12 && char === wordPattern[index])
       .join('');
     setWord(newWord);
     if (autoEnter && newWord === wordPattern) {
-      handleEnterPress();
+      addWordToLines();
     }
-
   };
-
-
 
   const handleEnterPress = () => {
-    if (word === wordPattern) {
-      const newLines = [...lines];
-      const lineIndex = newLines.findIndex(line => line === '');
-      if (lineIndex !== -1) {
-        newLines[lineIndex] = word;
-        setLines(newLines);
-        setWord('');
-        setWordCount(wordCount + 1);
-        if (lineIndex === 54) {
-          // Reset lines when all lines are filled
-          setLines(Array(55).fill(''));
-        }
-      }
-    }
-    else {
-      setWord('')
+    if (!autoEnter && word === wordPattern) {
+      addWordToLines();
     }
   };
+
+  const addWordToLines = () => {
+    const newLines = [...lines];
+    const lineIndex = newLines.findIndex(line => line === '');
+    if (lineIndex !== -1) {
+      newLines[lineIndex] = wordPattern;
+      setLines(newLines);
+      setWord('');
+      setWordCount(wordCount + 1);
+      if (lineIndex === 54) {
+        setLines(Array(55).fill(''));
+      }
+    } else {
+      setWord('');
+    }
+  };
+
   return (
-    <div >
+    <div>
       <div>
-      <Navbar></Navbar>
+        <Navbar />
       </div>
       <div className='main'>
         <img src={image1} alt='iMAGE' className='image' />
@@ -60,12 +59,21 @@ function Mantrapage() {
               onChange={handleInputChange}
               onKeyDown={(e) => { if (e.key === 'Enter') handleEnterPress(); }}
               placeholder="Swaminarayan"
+              className='mantrainput'
             />
-            
+           
           </div>
           <div className='count'>Total Count {wordCount} and counting</div>
-
         </div>
+        <label>
+              <input
+                type="checkbox"
+                checked={autoEnter}
+                onChange={() => setAutoEnter(!autoEnter)}
+                className='enterCheckBox'
+              />
+              Skip Enter Key
+            </label>
       </div>
       <div className="lines">
         {lines.map((line, index) => (
@@ -73,6 +81,9 @@ function Mantrapage() {
             {line}
           </div>
         ))}
+      </div>
+      <div>
+        <Bottom></Bottom>
       </div>
     </div>
   );

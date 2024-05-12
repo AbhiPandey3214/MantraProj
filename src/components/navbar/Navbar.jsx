@@ -61,6 +61,17 @@ function Navbar() {
             <li className="nav-item">
               <NavLink
                 exact
+                to="/topusers"
+                activeClassName="active"
+                className="nav-links"
+                onClick={handleClick}
+              >
+               Edit Profile
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink
+                exact
                 to="/contact"
                 activeClassName="active"
                 className="nav-links"

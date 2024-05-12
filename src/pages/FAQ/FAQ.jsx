@@ -2,6 +2,8 @@ import React from 'react'
 import './FAQ.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import Navbar from '../../components/navbar/Navbar';
+import RightNavigation from '../../components/RightNavigation/RightNavigation';
+import Bottom from '../../components/bottom/Bottom';
 const FAQ = () => {
   return (
     <div>
@@ -11,16 +13,16 @@ const FAQ = () => {
     
     <div className="faq-main-div editor">
 
-        <div className= "faq-left-div ">
-        <h3 className='font-weight-bold'>Frequently Asked Questions</h3>
+        <div className= "faq-child1-div ">
+        <h3 className='faq-head'>Frequently Asked Questions</h3>
         <div>
-            <h2>What is Mantralekhan.com?</h2>
+          <span>  What is Mantralekhan.com?</span>
             <p>Mantralekhan.com is a simple tool to enable devotees to please Bhagwan Swaminarayan by typing â€œSwaminarayanâ€ mahamantra online. <br />
 
 Till date, thousands of people did bhajan by writing Swaminarayana mantra with pen and paper. This is an online tool which will enable computer savvy people to mantralekhan online whenever they have short time gat at work, travelling or at leisure.</p>
         </div>
         <div>
-            <h2>How does mantralekhan.com work?</h2>
+        <span>How does mantralekhan.com work?</span>
             <p>You can register by filling a simple form and start doing Swaminaryan mantralekhan immediately. This site also keeps log of total mantralekhan done by you.
 
 Using this site is really simple. Once you log in, you see the big white textbox. You simply type â€œSwaminarayanâ€ and press enter key in your keyboard. This will be counted as 1 mantralekhan and will be saved in your account on this website. You again type â€œSwaminarayanâ€ and press enter key. And so on.
@@ -29,7 +31,7 @@ In one session, you should consider doing atleast 101 mantralekhan.
 
 </p>
 <div>
-            <h2>But its artificial, not as good as writing on paper</h2>
+<span>But its artificial, not as good as writing on paper</span>
             <p>YThe concept of writing Swaminarayan mahamantra on a paper with red pen exists since years and thousands of people do that regularly â€“ to please Bhagwan Swaminarayan. The purpose of writing is the devotion towards Bhagwan Swaminarayan. The significance is not in writing but to remembering and chanting â€œswaminarayanâ€ mahamantra.
 
 Not the concept but the motive behind writing on paper is important. This site is a digital version of the Mantralekhan concept. Technology helps to keep log of your mantra chanting and does it faster. Typing â€œSwaminarayanâ€ mantra on this site is lot faster than you do it on paper. Also using this site means, saving paper â€“ saving trees.
@@ -37,7 +39,7 @@ Not the concept but the motive behind writing on paper is important. This site i
 So, weâ€™d say that this idea is new, better and faster. Not artificial in anyway.
 
 </p>
-<h2>This site does not work properly. I face some problem.</h2>
+<span>This site does not work properly. I face some problem.</span>
             <p>Mantralekhan.com team is determined to make things work best for you. In case you encounter some problems on this site, make sure to observe following steps.
 
 Use latest and good web browsers such as Mozilla Firefox, Safari, Opera or Google Chrome. We do NOT recommend Internet Explorer
@@ -50,11 +52,13 @@ Kindly do contact us if you still face problems. Make sure to explain the proble
         </div>
         </div>
         </div>
-        <div className= "faq-right-div ">
-        <FontAwesomeIcon icon="fa-solid fa-arrow-right" />
-        <p>Right</p>
+        <div className= "faq-child2-div ">
+       <RightNavigation/>
         </div>
     
+    </div>
+    <div>
+      <Bottom/>
     </div>
     </div>
   );

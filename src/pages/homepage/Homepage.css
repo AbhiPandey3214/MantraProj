@@ -2,6 +2,8 @@
   display: inline-block;
   border: 20x solid red;
   margin-top: 2%;
+  font-family: 'Times New Roman', Times, serif;
+  font-size: 1.5rem;
 }
 
 
@@ -18,9 +20,7 @@
 .homepage-button:hover {
   background-color: #0056b3;
 }
- .ltext{
-  font-size: 25px;
- }
+ 
  
  @media screen and (min-width: 550px) {
   .image-container {

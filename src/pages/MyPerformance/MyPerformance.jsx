@@ -35,7 +35,7 @@ const MyPerformance = () => {
 
  
   const [userData, setUserData] = useState(dummyUserData);
-  const [image, setImage] = useState(null); // For storing the image file
+  const [image, setImage] = useState(null); 
   const [currentDateTime, setCurrentDateTime] = useState(null);
 
   
@@ -79,7 +79,7 @@ const MyPerformance = () => {
         
       
     </div>
-   <div className='vw-80 chartclass'>
+   <div className='chartclass'>
     <BarChart chartData={graphData}></BarChart>
     </div>
     <div>

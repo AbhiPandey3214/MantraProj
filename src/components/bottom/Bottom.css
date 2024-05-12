@@ -4,8 +4,8 @@ left:0;
 bottom:0;
 right:0;
 margin-top: 10px;
-  border: 2px solid black;
-  background-color: #de4620;
+ 
+  background-color:  #de4620;
   border-radius: 5px;
 }
 .bottom-child2{
@@ -14,10 +14,18 @@ margin-top: 10px;
 
 }
 .bottom-child1{
-  font-size: 10px;
+  
+  padding: .5rem;
+  color: white;
+  margin-left: 5%;
 }
+
 @media only screen and (max-width: 700px) {
   .bottom-child2{
     margin-left: 25%;
+  }
+  .bottom-child1{
+    
+    margin-left: 5%;
   }
 }

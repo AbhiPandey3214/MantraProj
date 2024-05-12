@@ -29,7 +29,7 @@ const Bottom = () => {
       <div className="bottom-parent">
        <div className='bottom-child1'>
          
-       <p className='ltext'>Total <span>{topUsersData.count.toLocaleString()}</span> mantralekhan
+       <p className='bottom-text'>Total <span>{topUsersData.count.toLocaleString()}</span> mantralekhan
 by <span>{topUsersData.users.toLocaleString()}</span> registered users on this site
 and counting...</p>
 </div>

@@ -26,6 +26,7 @@ const TopUsersPage = () => {
       {
         throw new Error('Failed to fetch data');
       }
+      console.log('Error not yet');
       const weekjsonData = await weekResponse.json();
       const allTimejsonData = await allTimeResponse.json();
       const monthjsonData = await monthResponse.json();
@@ -33,7 +34,7 @@ const TopUsersPage = () => {
       setTopUsersAllTime(allTimejsonData.data);
       setTopUsersMonth(monthjsonData.data);
     } catch (error) {
-      setError(error.message);
+      throw new Error('Catch');
     }
   };
 

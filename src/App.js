@@ -9,6 +9,7 @@ import Mantrapage from './pages/mantrapage/Mantrapage';
 import TopUsersPage from './pages/topusers/Topusers';
 import MyPerformance from './pages/MyPerformance/MyPerformance';
 import FAQ from './pages/FAQ/FAQ';
+import BhagwanSwaminarayan from './pages/BhagwanSwaminarayan/BhagwanSwaminarayan';
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
      
       <Route path="/myperformance" element={<MyPerformance/>}></Route>
       <Route path="/faq" element={<FAQ/>}></Route>
+      <Route path="/BhagwanSwaminarayan" element={<BhagwanSwaminarayan/>}></Route>
     </Routes>
    </Router>
   );

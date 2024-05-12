@@ -1,9 +1,9 @@
 import React from 'react';
 import './Homepage.css'; 
 import Bottom from '../../components/bottom/Bottom';
-import Bhagwanji from './Bhagwanji.png';
+import Bhagwanji from '../../assets/Bhagwanji.png';
 import Navbar from '../../components/navbar/Navbar';
-
+import FooterWithLinks from '../../components/FooterWithLinks/FooterWithLinks';
 const Homepage = () => {
     const topUsersData = {count:316314331,users:14983}
   return (
@@ -24,7 +24,12 @@ and counting...</p>
       </div>
     
     </div>
-   
+   <div>
+    <FooterWithLinks/>
+   </div>
+   <div>
+    <Bottom/>
+   </div>
     </div>
   );
 };
