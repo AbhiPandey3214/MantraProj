@@ -10,7 +10,7 @@ import TopUsersPage from './pages/topusers/Topusers';
 import MyPerformance from './pages/MyPerformance/MyPerformance';
 import FAQ from './pages/FAQ/FAQ';
 import BhagwanSwaminarayan from './pages/BhagwanSwaminarayan/BhagwanSwaminarayan';
-
+import Login from './components/Login/Login';
 function App() {
   return (
    <Router>
@@ -22,6 +22,7 @@ function App() {
       <Route path="/myperformance" element={<MyPerformance/>}></Route>
       <Route path="/faq" element={<FAQ/>}></Route>
       <Route path="/BhagwanSwaminarayan" element={<BhagwanSwaminarayan/>}></Route>
+      <Route path="/login" element={<Login/>}></Route>
     </Routes>
    </Router>
   );

@@ -1,30 +1,50 @@
 import React, { useState } from 'react';
+import axios from "axios";
 import Navbar from '../../components/navbar/Navbar';
 import image1 from '../../assets/Bhagwanji.png';
 import './Mantrapage.css';
 import Bottom from '../../components/bottom/Bottom';
+import Cookies from 'js-cookie';
+
 function Mantrapage() {
   const [word, setWord] = useState('');
   const [lines, setLines] = useState(Array(55).fill(''));
   const [wordCount, setWordCount] = useState(0);
-  const wordPattern = "Swaminarayan";
   const [autoEnter, setAutoEnter] = useState(false);
-
-  const handleInputChange = (e) => {
-    const input = e.target.value.slice(0, 12); // Limit input to 12 characters
+  const wordPattern = "Swaminarayan";
+  const addCount = async () => {
+    const accessToken = Cookies.get('connect.sid');
+    console.log(accessToken);
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/mantralekhan',{id:"853b2cf6-b9d9-425f-a076-e9af90ebbeca"},{ withCredentials: true ,headers: {
+        'Content-Type': 'application/json' 
+      }
+    });
+  
+     console.log("Count should be updated")
+      console.log(response.data);
+    } catch (error) {
+      console.error('There was a problem with your Axios request:', error);
+    }
+  };
+  const handleInputChange = async(e) => {
+    const input = e.target.value.slice(0, 12); 
     const newWord = input
       .split('')
       .filter((char, index) => index < 12 && char === wordPattern[index])
       .join('');
     setWord(newWord);
     if (autoEnter && newWord === wordPattern) {
+      addCount();
       addWordToLines();
     }
   };
 
-  const handleEnterPress = () => {
+  const handleEnterPress = async(e) => {
     if (!autoEnter && word === wordPattern) {
+      addCount();
       addWordToLines();
+      e.preventDefault(); // Prevent default action of Enter key
     }
   };
 
@@ -50,30 +70,29 @@ function Mantrapage() {
         <Navbar />
       </div>
       <div className='main'>
-        <img src={image1} alt='iMAGE' className='image' />
+        <img src={image1} alt='IMAGE' className='image' />
         <div className='sub_main'>
           <div className="box">
             <input
               type="text"
               value={word}
               onChange={handleInputChange}
-              onKeyDown={(e) => { if (e.key === 'Enter') handleEnterPress(); }}
+              onKeyDown={(e) => { if (e.key === 'Enter') handleEnterPress(e); }}
               placeholder="Swaminarayan"
               className='mantrainput'
             />
-           
           </div>
           <div className='count'>Total Count {wordCount} and counting</div>
         </div>
         <label>
-              <input
-                type="checkbox"
-                checked={autoEnter}
-                onChange={() => setAutoEnter(!autoEnter)}
-                className='enterCheckBox'
-              />
-              Skip Enter Key
-            </label>
+          <input
+            type="checkbox"
+            checked={autoEnter}
+            onChange={() => setAutoEnter(!autoEnter)}
+            className='enterCheckBox'
+          />
+          Skip Enter Key
+        </label>
       </div>
       <div className="lines">
         {lines.map((line, index) => (
