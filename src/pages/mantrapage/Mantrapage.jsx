@@ -19,9 +19,11 @@ function Mantrapage() {
     // const accessToken = Cookies.get('accessToken');
     // console.log(accessToken);
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/mantralekhan',{id:localStorage.getItem('userId')},{ withCredentials: true ,headers: {
-        'Content-Type': 'application/json' 
-      }
+      const response = await axios.post('http://localhost:8080/api/v1/mantralekhan',{id:localStorage.getItem('userId')},{ 
+        withCredentials: true ,
+        headers: {
+          'Content-Type': 'application/json' 
+        }
     });
   
      console.log("Count should be updated")

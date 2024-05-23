@@ -4,23 +4,29 @@ import './MyPerformance.css';
 import defaultImage from './download.png';
 import BarChart from './BarChart';
 import Bottom from '../../components/bottom/Bottom';
-
+import axios from 'axios'
 
 const MyPerformance = () => {
   const [userMantraData, setUserMantraData] = useState(null);
-
+  const [graphData, setGraphData] = useState(null)
+  
   const user_id = localStorage.getItem('userId');
+
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const userMantraDataResponse = await fetch(`http://localhost:8080/api/v1/user/stats/${user_id}`);
-
-
+        const userMantraDataResponse = await fetch(`http://localhost:8080/api/v1/user/stats/${user_id}`,{
+          credentials: 'include'
+        });
+        // const userMantraDataResponse = await axios.get(http://localhost:8080/api/v1/user/stats/${user_id},{},{
+        //   withCredentials:true
+        // });
+        const userMantraData_Data = await userMantraDataResponse.json();
+        console.log(userMantraData_Data);
         if (!userMantraDataResponse.ok) {
           throw new Error('Failed to fetch data');
         }
 
-        const userMantraData_Data = await userMantraDataResponse.json();
         console.log("graph data");
         console.log(userMantraData_Data);
         setUserMantraData(userMantraData_Data);
@@ -30,34 +36,35 @@ const MyPerformance = () => {
       }
     };
     fetchData();
+
   }, []);
-  const [graphData, setGraphData] = useState(
-    null
 
-  )
-  useEffect(()=>{
-    console.log("useMantraData");
-    console.log(userMantraData);
-  },[userMantraData])
+  // useEffect(()=>{
+  //   console.log("userMantraData");
+  //   console.log(userMantraData);
+  // },[userMantraData])
+
   useEffect(() => {
+    console.log('In Use Effect');
     console.log(userMantraData);
-
-
-    setGraphData({
-      labels: userMantraData.currentMonthMantralekhan?.map((data) => data.date),
-      datasets: [{
-        label: "Mantralekhan",
-        data: userMantraData?.currentMonthMantralekhan?.map((data) => data.mantraCount),
-        backgroundColor: ["rgba(75,192,192,1)",
-          "#ecf0f1",
-          "#50AF95",
-          "#f3ba2f",
-          "#2a71d0",
-        ],
-        borderColor: "black",
-        borderWidth: 2,
-      }]
-    })
+    if(userMantraData){
+      setGraphData({
+        labels: userMantraData.currentMonthMantralekhan?.map((data) => data.date),
+        datasets: [{
+          label: "Mantralekhan",
+          data: userMantraData?.currentMonthMantralekhan?.map((data) => data.mantraCount),
+          backgroundColor: ["rgba(75,192,192,1)",
+            "#ecf0f1",
+            "#50AF95",
+            "#f3ba2f",
+            "#2a71d0",
+          ],
+          borderColor: "black",
+          borderWidth: 2,
+        }]
+      })
+  
+    }
   }, [userMantraData])
 
 
@@ -117,8 +124,8 @@ const MyPerformance = () => {
 
       </div>
       <div className='chartclass'>
-        {/* <BarChart chartData={graphData}></BarChart> */}
-      </div>
+        {graphData && <BarChart chartData={graphData} />}
+      </div>      
       <div>
         <Bottom></Bottom>
       </div>
