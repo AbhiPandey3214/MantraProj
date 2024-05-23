@@ -9,7 +9,7 @@ const FeedbackModal = ({ isModalOpenFeedback,closeModalFeedback }) => {
   const [email, setEmail] = useState('');
   const [comments, setComments] = useState('');
   const formData = {
-    id: '8bd1b008-13b3-4397-903d-a9f81c614311',
+    id: localStorage.getItem('userId'),
     fullName: fullName,
     email: email,
     comment: comments
@@ -17,12 +17,15 @@ const FeedbackModal = ({ isModalOpenFeedback,closeModalFeedback }) => {
   const handleSubmit =async (event) => {
     event.preventDefault();
     try {
-      const response = await axios.post('{{SERVER_URL}}/feedback', formData);
-      console.log('Feedback submitted successfully:', response.data);
-      // Handle success, display message to user, etc.
-    } catch (error) {
+      const response = await axios.post('http://localhost:8080/api/v1/mantralekhan',{id:localStorage.getItem('userId'),email:formData.email,
+      fullName:formData.fullName,
+      comment:formData.fullName},{ withCredentials: true ,headers: {
+        'Content-Type': 'application/json' 
+      }
+    })
+  console.log(response)}catch (error) {
       console.error('Error submitting feedback:', error);
-      // Handle error, display error message to user, etc.
+     
     }
   
     console.log('Feedback submitted:', { fullName, email, comments });

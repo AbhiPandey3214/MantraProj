@@ -12,11 +12,14 @@ function Mantrapage() {
   const [wordCount, setWordCount] = useState(0);
   const [autoEnter, setAutoEnter] = useState(false);
   const wordPattern = "Swaminarayan";
+  const user_id=localStorage.getItem('userId');
+  console.log("user_id");
+  console.log(user_id);
   const addCount = async () => {
-    const accessToken = Cookies.get('connect.sid');
-    console.log(accessToken);
+    // const accessToken = Cookies.get('accessToken');
+    // console.log(accessToken);
     try {
-      const response = await axios.post('http://localhost:8080/api/v1/mantralekhan',{id:"853b2cf6-b9d9-425f-a076-e9af90ebbeca"},{ withCredentials: true ,headers: {
+      const response = await axios.post('http://localhost:8080/api/v1/mantralekhan',{id:localStorage.getItem('userId')},{ withCredentials: true ,headers: {
         'Content-Type': 'application/json' 
       }
     });

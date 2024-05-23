@@ -1,8 +1,7 @@
 import React, { useState,useEffect,setError } from 'react';
 import './topusers.css'; 
-import Bottom from '../../components/bottom/Bottom';
 import Navbar from '../../components/navbar/Navbar';
-import defaultUserImage from './download.png'; 
+import Bottom from '../../components/bottom/Bottom';
 
 const TopUsersPage = () => {
   const [topUsersWeek,setTopUsersWeek]=useState([]);
@@ -18,7 +17,8 @@ const TopUsersPage = () => {
       const weekResponse = await fetch('http://localhost:8080/api/v1/mantralekhan/week');
       const allTimeResponse = await fetch('http://localhost:8080/api/v1/mantralekhan/alltime');
       const monthResponse = await fetch('http://localhost:8080/api/v1/mantralekhan/month');
-     // const response = await fetch('http://localhost:8080/api/v1/mantralekhan/week');
+     const todayResponse = await fetch('http://localhost:8080/api/v1/mantralekhan/today');
+
       if (!weekResponse.ok ||!allTimeResponse.ok ) {
         throw new Error('Failed to fetch data');
       }
@@ -30,9 +30,11 @@ const TopUsersPage = () => {
       const weekjsonData = await weekResponse.json();
       const allTimejsonData = await allTimeResponse.json();
       const monthjsonData = await monthResponse.json();
+      const todayJsonData = await todayResponse.json();
       setTopUsersWeek(weekjsonData.data);
       setTopUsersAllTime(allTimejsonData.data);
       setTopUsersMonth(monthjsonData.data);
+      setTopUsersToday(todayJsonData.data)
     } catch (error) {
       throw new Error('Catch');
     }
@@ -42,11 +44,7 @@ const TopUsersPage = () => {
 
   // Dummy data for demonstration
   const topUsersData = {
-    today: [
-      { id: 1, name: 'User 1', score: 100, mantraCount: 250 },
-      { id: 2, name: 'User 2', score: 90, mantraCount: 200 },
-      { id: 3, name: 'User 3', score: 80, mantraCount: 180 }
-    ],
+    today: topUsersToday,
     week: topUsersWeek,
     month: topUsersMonth,
     allTime:topUsersAllTime
@@ -116,7 +114,10 @@ const TopUsersPage = () => {
         <button className='button'>Start Mantralekhan</button>
       </div>
     </div>
-     
+    
+     <div className='topusers-bottom'>
+      <Bottom/>
+     </div>
    </div>
   );
 };

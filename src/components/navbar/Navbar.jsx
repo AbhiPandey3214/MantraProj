@@ -18,17 +18,19 @@ function Navbar() {
   };
   useEffect(() => {
     const getUserData = async () => {
-      const accessToken = Cookies.get('connect.sid');
-      console.log("navbar hai")
-      console.log(accessToken);
+      // const accessToken = Cookies.get('connect.sid');
+      console.log("Navbar Hai")
+      // console.log(accessToken);
       try {
-        let response = await axios.get("http://localhost:8080/login/success", {
-          withCredentials: true, 
-        });
+        axios.defaults.withCredentials = true;
+        let response = await axios('http://localhost:8080/login/success', {
+          method: 'GET',
+          withCredentials: true
+        })
         console.log(response.data);
         setUserData(response.data);
-        localStorage.setItem('userId', response.data.user.id);
-        console.log("response.data.user.id");
+        localStorage.setItem('userId', response.data.id);
+        // console.log("response.data.user.id");
       } catch (error) {
         console.log("Error fetching user data:", error);
       }

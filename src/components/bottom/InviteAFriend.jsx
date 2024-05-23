@@ -1,17 +1,34 @@
-// FeedbackModal.js
+
 import React, { useState } from 'react';
+import axios from 'axios';
 import './FeedbackModal.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faTimes } from '@fortawesome/free-solid-svg-icons';
 const InviteAFriend = ({ isModalOpenInvite,closeModalInvite }) => {
-  const [name, setName] = useState('');
+  const [fullName, setFullName] = useState('');
   const [email, setEmail] = useState('');
   const [comments, setComments] = useState('');
-
-  const handleSubmit = (event) => {
+  const formData = {
+    id: localStorage.getItem('userId'),
+    fullName: fullName,
+    email: email,
+    comment: comments
+  };
+  const handleSubmit =async (event) => {
     event.preventDefault();
-    console.log('Feedback submitted:', { name, email, comments });
-    setName('');
+    try {
+      const response = await axios.post('http://localhost:8080/api/v1/mantralekhan',{id:formData.id,email:formData.email,
+      fullName:formData.fullName,
+      comment:formData.comment},{ withCredentials: true ,headers: {
+        'Content-Type': 'application/json' 
+      }
+    })
+  console.log(response)}catch (error) {
+      console.error('Error submitting feedback:', error);
+     
+    }
+    console.log('Invite Sent:', { fullName, email, comments });
+    setFullName('');
     setEmail('');
     setComments('');
     closeModalInvite();
@@ -34,8 +51,8 @@ const InviteAFriend = ({ isModalOpenInvite,closeModalInvite }) => {
                   className="input"
                   type="text"
                   placeholder="Your name"
-                  value={name}
-                  onChange={(e) => setName(e.target.value)}
+                  value={fullName}
+                  onChange={(e) => setFullName(e.target.value)}
                   required
                 />
               </div>
