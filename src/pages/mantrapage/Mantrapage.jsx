@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
 import axios from "axios";
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../../components/Navbar/Navbar';
 import image1 from '../../assets/Bhagwanji.png';
 import './Mantrapage.css';
-import Bottom from '../../components/bottom/Bottom';
+import Bottom from '../../components/Bottom/Bottom';
 import Cookies from 'js-cookie';
 
 function Mantrapage() {

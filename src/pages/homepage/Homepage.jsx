@@ -1,8 +1,8 @@
 import React from 'react';
 import './Homepage.css'; 
-import Bottom from '../../components/bottom/Bottom';
+import Bottom from '../../components/Bottom/Bottom';
 import Bhagwanji from '../../assets/Bhagwanji.png';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../../components/Navbar/Navbar';
 import FooterWithLinks from '../../components/FooterWithLinks/FooterWithLinks';
 const Homepage = () => {
     const topUsersData = {count:316314331,users:14983}

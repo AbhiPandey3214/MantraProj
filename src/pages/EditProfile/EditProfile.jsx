@@ -1,7 +1,7 @@
 import React from 'react'
 import { useState } from 'react';
-import Navbar from '../../components/navbar/Navbar';
-import Bottom from '../../components/bottom/Bottom';
+import Navbar from '../../components/Navbar/Navbar';
+import Bottom from '../../components/Bottom/Bottom';
 const EditProfile = () => {
     const [profilePicture, setProfilePicture] = useState(null);
 

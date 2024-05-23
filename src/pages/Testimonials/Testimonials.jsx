@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import RightNavigation from '../../components/RightNavigation/RightNavigation';
-import Bottom from '../../components/bottom/Bottom';
-import Navbar from '../../components/navbar/Navbar';
+import Bottom from '../../components/Bottom/Bottom';
+import Navbar from '../../components/Navbar/Navbar';
 import './Testimonials.css';
 const Testimonials = () => {
   const[testimonialArray,setTestimonialArray]=useState([]);

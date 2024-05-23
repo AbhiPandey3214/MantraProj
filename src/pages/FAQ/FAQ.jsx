@@ -1,9 +1,9 @@
 import React from 'react'
 import './FAQ.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../../components/Navbar/Navbar';
 import RightNavigation from '../../components/RightNavigation/RightNavigation';
-import Bottom from '../../components/bottom/Bottom';
+import Bottom from '../../components/Bottom/Bottom';
 const FAQ = () => {
   return (
     <div>

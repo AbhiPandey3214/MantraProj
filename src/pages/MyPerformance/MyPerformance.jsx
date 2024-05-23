@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from 'react';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../../components/Navbar/Navbar';
 import './MyPerformance.css';
 import defaultImage from './download.png';
 import BarChart from './BarChart';
-import Bottom from '../../components/bottom/Bottom';
+import Bottom from '../../components/Bottom/Bottom';
 import axios from 'axios'
 
 const MyPerformance = () => {

@@ -22,10 +22,11 @@ function Navbar() {
       console.log("Navbar Hai")
       // console.log(accessToken);
       try {
-        axios.defaults.withCredentials = true;
-        let response = await axios('http://localhost:8080/login/success', {
-          method: 'GET',
-          withCredentials: true
+        
+        let response = await fetch('http://localhost:8080/login/success', {
+          
+            credentials: 'include'
+          
         })
         console.log(response.data);
         setUserData(response.data);

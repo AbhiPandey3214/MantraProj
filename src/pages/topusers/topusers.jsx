@@ -1,7 +1,7 @@
 import React, { useState,useEffect,setError } from 'react';
 import './topusers.css'; 
-import Navbar from '../../components/navbar/Navbar';
-import Bottom from '../../components/bottom/Bottom';
+import Navbar from '../../components/Navbar/Navbar';
+import Bottom from '../../components/Bottom/Bottom';
 
 const TopUsersPage = () => {
   const [topUsersWeek,setTopUsersWeek]=useState([]);

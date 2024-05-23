@@ -1,7 +1,7 @@
 import React from 'react'
 import './FooterWithLinks.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import Navbar from '../../components/navbar/Navbar';
+import Navbar from '../Navbar/Navbar';
 const FooterWithLinks = () => {
   return (
     <div>
@@ -10,10 +10,10 @@ const FooterWithLinks = () => {
 
         <div className= "footer-left-div ">
         <p>This is an endeavour to please Bhagwan Swaminarayan by typing “Swaminarayan” mahamantra online.narayan by typing “Swaminarayan” mahamantra online.</p>
-        <a className='linktag' href="">Top Users</a>
-        <a className='linktag' href="">Bhagwan Swaminarayan</a>
-        <a className='linktag' href="">Frequently Asked Questions</a>
-        <a className='linktag' href="">Testimonials</a>
+        <a className='linktag' href="/topusers">Top Users</a>
+        <a className='linktag' href="/BhagwanSwaminarayan">Bhagwan Swaminarayan</a>
+        <a className='linktag' href="/faq">Frequently Asked Questions</a>
+        <a className='linktag' href="/testimonial">Testimonials</a>
         </div>
        
       
